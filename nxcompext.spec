@@ -13,6 +13,7 @@ BuildRequires:	XFree86-Xserver-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	nxcomp-devel
+BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
