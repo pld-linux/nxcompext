@@ -1,5 +1,5 @@
-#
 Summary:	NX compression library extenstions
+Summary(pl):	Rozszerzenia biblioteki kompresji NX
 Name:		nxcompext
 Version:	1.4.0_2
 Release:	1
@@ -13,26 +13,38 @@ BuildRequires:	XFree86-Xserver-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	nxcomp-devel
+BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 NX compression library extensions.
 
+%description -l pl
+Rozszerzenia biblioteki kompresji NX.
+
 %package devel
-Summary:	Header files and develpment documentation for nxcompext
+Summary:	Header files for nxcompext
+Summary(pl):	Pliki nag³ówkowe nxcompext
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description devel
-Files needed for development using nxcompext.
+Header files for nxcompext.
+
+%description devel -l pl
+Pliki nag³ówkowe nxcompext.
 
 %package static
 Summary:	Static nxcompext library
+Summary(pl):	Statyczna biblioteka nxcompext
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
 Static nxcompext library.
+
+%description static -l pl
+Statyczna biblioteka nxcompext.
 
 %prep
 %setup -q -n %{name}
@@ -56,8 +68,8 @@ install NX.h $RPM_BUILD_ROOT%{_includedir}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
