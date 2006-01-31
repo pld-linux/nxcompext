@@ -13,7 +13,6 @@ BuildRequires:	XFree86-Xserver-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	nxcomp-devel
-BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -27,7 +26,7 @@ Rozszerzenia biblioteki kompresji NX.
 Summary:	Header files for nxcompext
 Summary(pl):	Pliki nag³ówkowe nxcompext
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for nxcompext.
@@ -39,7 +38,7 @@ Pliki nag³ówkowe nxcompext.
 Summary:	Static nxcompext library
 Summary(pl):	Statyczna biblioteka nxcompext
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static nxcompext library.
