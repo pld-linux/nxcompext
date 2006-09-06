@@ -1,15 +1,19 @@
+%define	_version_major	2.0.0
+%define	_version_minor	33
+
 Summary:	NX compression library extenstions
 Summary(pl):	Rozszerzenia biblioteki kompresji NX
 Name:		nxcompext
-Version:	1.4.0_2
+Version:	%{_version_major}.%{_version_minor}
 Release:	1
 License:	GPL
 Group:		X11/Libraries
-Source0:	http://www.nomachine.com/download/snapshot/nxsources/%{name}-%(echo %{version} | tr _ -).tar.gz
-# Source0-md5:	aec8b44cfd3e05fca529769f4f9f90e7
+Source0:	http://64.34.161.181/download/%{_version_major}/sources/%{name}-%{_version_major}-%{_version_minor}.tar.gz
+# Source0-md5:	d6738f330687d6c986600a9685e527cf
+Patch0:		%{name}-xgetioerror.patch
 URL:		http://www.nomachine.com/
-BuildRequires:	XFree86-devel
-BuildRequires:	XFree86-Xserver-devel
+BuildRequires:	X11-devel
+BuildRequires:	X11-Xserver-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	nxcomp-devel
@@ -48,22 +52,22 @@ Statyczna biblioteka nxcompext.
 
 %prep
 %setup -q -n %{name}
+%patch0 -p1
 
 %build
+%{__autoconf}
 %configure
 sed -i -e 's#-I/usr/X11R6/include#-I/usr/X11R6/include -I/usr/X11R6/include/X11 -I/usr/X11R6/include/X11/Xserver/programs/Xserver/include#g' Makefile
+sed -i -e 's#-L../nxcomp#-L/usr/X11R6/lib#' Makefile
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_libdir},%{_includedir}}
 
-#%{__make} install \
-#	DESTDIR=$RPM_BUILD_ROOT
-
-cp -a lib*.so* $RPM_BUILD_ROOT%{_libdir}
-install lib*.a $RPM_BUILD_ROOT%{_libdir}
-install NX.h $RPM_BUILD_ROOT%{_includedir}
+cp -a lib*.so*	$RPM_BUILD_ROOT%{_libdir}
+install lib*.a	$RPM_BUILD_ROOT%{_libdir}
+install NX*.h	$RPM_BUILD_ROOT%{_includedir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
