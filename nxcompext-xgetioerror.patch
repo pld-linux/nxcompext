@@ -1,0 +1,13 @@
+diff -urN nxcompext.orig/NXlib.c nxcompext/NXlib.c
+--- nxcompext.orig/NXlib.c	2006-06-11 00:39:49.000000000 +0200
++++ nxcompext/NXlib.c	2006-09-06 15:16:48.000000000 +0200
+@@ -56,6 +56,9 @@
+ 
+ #include "MD5.h"
+ 
++#define _XGetIOError(dpy) \
++    (dpy -> flags & XlibDisplayIOError)
++
+ #define PANIC
+ #define WARNING
+ #undef  TEST
