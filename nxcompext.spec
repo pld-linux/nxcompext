@@ -11,12 +11,13 @@ Group:		X11/Libraries
 Source0:	http://64.34.161.181/download/%{_version_major}/sources/%{name}-%{_version_major}-%{_version_minor}.tar.gz
 # Source0-md5:	d6738f330687d6c986600a9685e527cf
 Patch0:		%{name}-xgetioerror.patch
+Patch1:	%{name}-xorg-includes.patch
 URL:		http://www.nomachine.com/
-BuildRequires:	X11-devel
-BuildRequires:	X11-Xserver-devel
+BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-xserver-server-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
-BuildRequires:	nxcomp-devel
+BuildRequires:	nxcomp-devel >= 2.0.0
 BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -53,12 +54,13 @@ Statyczna biblioteka nxcompext.
 %prep
 %setup -q -n %{name}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__autoconf}
 %configure
-sed -i -e 's#-I/usr/X11R6/include#-I/usr/X11R6/include -I/usr/X11R6/include/X11 -I/usr/X11R6/include/X11/Xserver/programs/Xserver/include#g' Makefile
-sed -i -e 's#-L../nxcomp#-L/usr/X11R6/lib#' Makefile
+sed -i -e 's#-I/usr/X11R6/include#-I/usr/include/X11 -I/usr/include/xorg#g' Makefile
+sed -i -e 's#-L../nxcomp##' Makefile
 %{__make}
 
 %install
