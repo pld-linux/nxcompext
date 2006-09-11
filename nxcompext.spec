@@ -12,8 +12,8 @@ Source0:	http://64.34.161.181/download/%{_version_major}/sources/%{name}-%{_vers
 # Source0-md5:	d6738f330687d6c986600a9685e527cf
 Patch0:		%{name}-xgetioerror.patch
 URL:		http://www.nomachine.com/
-BuildRequires:	X11-devel
-BuildRequires:	X11-Xserver-devel
+BuildRequires:	XFree86-devel
+BuildRequires:	XFree86-Xserver-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	nxcomp-devel
