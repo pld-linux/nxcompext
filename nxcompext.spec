@@ -58,7 +58,7 @@ Statyczna biblioteka nxcompext.
 %{__autoconf}
 %configure
 sed -i -e 's#-I/usr/X11R6/include#-I/usr/X11R6/include -I/usr/X11R6/include/X11 -I/usr/X11R6/include/X11/Xserver/programs/Xserver/include#g' Makefile
-sed -i -e 's#-L../nxcomp#-L/usr/X11R6/lib#' Makefile
+sed -i -e 's#-L../nxcomp#-L/usr/X11R6/%{_lib}#' Makefile
 %{__make}
 
 %install
