@@ -11,14 +11,14 @@ Group:		X11/Libraries
 Source0:	http://64.34.161.181/download/%{_version_major}/sources/%{name}-%{_version_major}-%{_version_minor}.tar.gz
 # Source0-md5:	d6738f330687d6c986600a9685e527cf
 Patch0:		%{name}-xgetioerror.patch
-Patch1:	%{name}-xorg-includes.patch
+Patch1:		%{name}-xorg-includes.patch
 URL:		http://www.nomachine.com/
-BuildRequires:	xorg-lib-libX11-devel
-BuildRequires:	xorg-xserver-server-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	nxcomp-devel >= 2.0.0
 BuildRequires:	sed >= 4.0
+BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-xserver-server-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
