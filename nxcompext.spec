@@ -13,6 +13,8 @@ Source0:	http://64.34.161.181/download/%{_version_major}/sources/%{name}-%{_vers
 Patch0:		%{name}-xgetioerror.patch
 Patch1:		%{name}-xorg-includes.patch
 URL:		http://www.nomachine.com/
+BuildRequires:	autoconf >= 2.59-9
+BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	nxcomp-devel >= 2.0.0
