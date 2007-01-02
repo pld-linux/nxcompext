@@ -5,7 +5,7 @@ Summary:	NX compression library extenstions
 Summary(pl):	Rozszerzenia biblioteki kompresji NX
 Name:		nxcompext
 Version:	%{_version_major}.%{_version_minor}
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://64.34.161.181/download/%{_version_major}/sources/%{name}-%{_version_major}-%{_version_minor}.tar.gz
