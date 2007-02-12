@@ -2,7 +2,7 @@
 %define	_version_minor	33
 
 Summary:	NX compression library extenstions
-Summary(pl):	Rozszerzenia biblioteki kompresji NX
+Summary(pl.UTF-8):   Rozszerzenia biblioteki kompresji NX
 Name:		nxcompext
 Version:	%{_version_major}.%{_version_minor}
 Release:	2
@@ -26,31 +26,31 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 NX compression library extensions.
 
-%description -l pl
+%description -l pl.UTF-8
 Rozszerzenia biblioteki kompresji NX.
 
 %package devel
 Summary:	Header files for nxcompext
-Summary(pl):	Pliki nag≥Ûwkowe nxcompext
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe nxcompext
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for nxcompext.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe nxcompext.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe nxcompext.
 
 %package static
 Summary:	Static nxcompext library
-Summary(pl):	Statyczna biblioteka nxcompext
+Summary(pl.UTF-8):   Statyczna biblioteka nxcompext
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static nxcompext library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka nxcompext.
 
 %prep
