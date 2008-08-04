@@ -1,5 +1,5 @@
-%define	_version_major	2.1.0
-%define	_version_minor	5
+%define	_version_major	3.2.0
+%define	_version_minor	1
 
 Summary:	NX compression library extenstions
 Summary(pl.UTF-8):	Rozszerzenia biblioteki kompresji NX
@@ -9,7 +9,7 @@ Release:	1
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://64.34.161.181/download/%{_version_major}/sources/%{name}-%{_version_major}-%{_version_minor}.tar.gz
-# Source0-md5:	d3347382860670cfd4471d228fb1b730
+# Source0-md5:	cd1296ebd24b1d7c4f82537a395ad6e8
 Patch0:		%{name}-xgetioerror.patch
 Patch1:		%{name}-xorg-includes.patch
 URL:		http://www.nomachine.com/
