@@ -1,14 +1,13 @@
-%define	_version_major	3.2.0
-%define	_version_minor	1
-
+%define	version_major	3.2.0
+%define	version_minor	1
 Summary:	NX compression library extenstions
 Summary(pl.UTF-8):	Rozszerzenia biblioteki kompresji NX
 Name:		nxcompext
-Version:	%{_version_major}.%{_version_minor}
-Release:	1
+Version:	%{version_major}.%{version_minor}
+Release:	2
 License:	GPL
 Group:		X11/Libraries
-Source0:	http://64.34.161.181/download/%{_version_major}/sources/%{name}-%{_version_major}-%{_version_minor}.tar.gz
+Source0:	http://64.34.161.181/download/%{version_major}/sources/%{name}-%{version_major}-%{version_minor}.tar.gz
 # Source0-md5:	cd1296ebd24b1d7c4f82537a395ad6e8
 Patch0:		%{name}-xgetioerror.patch
 Patch1:		%{name}-xorg-includes.patch
@@ -22,6 +21,12 @@ BuildRequires:	sed >= 4.0
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xorg-xserver-server-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+# don't satisfy xorg deps for the rest of the distro
+%define		_noautoprovfiles	%{_libdir}/NX
+
+# and as we don't provide them, don't require either
+%define		_noautoreq libXcompext.so
 
 %description
 NX compression library extensions.
@@ -67,10 +72,10 @@ sed -i -e 's#-L../nxcomp##' Makefile
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_libdir},%{_includedir}}
+install -d $RPM_BUILD_ROOT{%{_libdir}/NX,%{_includedir}}
 
-cp -a lib*.so*	$RPM_BUILD_ROOT%{_libdir}
-install lib*.a	$RPM_BUILD_ROOT%{_libdir}
+cp -a lib*.so*	$RPM_BUILD_ROOT%{_libdir}/NX
+cp -a lib*.a	$RPM_BUILD_ROOT%{_libdir}/NX
 install NX*.h	$RPM_BUILD_ROOT%{_includedir}
 
 %clean
@@ -82,13 +87,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc CHANGELOG README
-%attr(755,root,root) %{_libdir}/lib*.so.*
+%attr(755,root,root) %{_libdir}/NX/lib*.so.*
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/NX/lib*.so
 %{_includedir}/*.h
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/*.a
+%{_libdir}/NX/*.a
