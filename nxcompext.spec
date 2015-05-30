@@ -1,3 +1,7 @@
+# NOTE
+# - nxcompext is built in nx.spec in pld
+#   https://github.com/pld-linux/nx/commit/5843d362d78ea5fc3689d34a391622b1d8a110e0
+#
 %define	version_major	3.5.0
 %define	version_minor	1
 Summary:	NX compression library extenstions
